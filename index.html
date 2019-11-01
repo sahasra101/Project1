@@ -112,13 +112,14 @@
             <!-- ON FORM SUBMISSION, SHOW -->
             <div class="row">
 
-                <div class="col s12">
-
-                    <h5>SECOND API GOES HERE</h5>
-
-                </div>
-
-            </div>
+        <!-- *SECOND API* -->
+        <!-- ON PAGE LOAD, HIDE -->
+        <!-- ON FORM SUBMISSION, SHOW -->
+        <div id="floating-panel">
+            <input id="address" type="textbox" value="">
+            <input id="submit" type="button" value="Map It">
+        </div>
+        <div id="map">
 
         </div>
 
@@ -138,11 +139,17 @@
         </div>
         <!-- END FAVORITES PAGE NOTES -->
 
-        <!-- Game.js link -->
-        <!-- <script src="assets/javascript/game.js"></script> -->
+    <!-- END FAVORITES PAGE NOTES -->
 
-        <!-- Link to Moment.js  -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>    
+
+
+       <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqs_fpeyzAWnwXcsHu-tXLHqEnHpwPhNQ&callback=initMap">
+        </script>
 
 </body>
 
