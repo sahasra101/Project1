@@ -7,11 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>City Search</title>
 
-    <!-- Materialize CSS 1 - Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Materialize CSS 2 - Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
     <!-- Materialize CSS Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,12 +17,21 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches&display=swap" rel="stylesheet">
 
-    <!-- Own CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--JavaScript at end of body for optimized loading-->
+    <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <!-- Own CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 
@@ -48,87 +55,62 @@
             <h3><strong>City Search</strong></h3>
         </div>
 
+        <!--  -->
+        <div id="row">
+
+            <input type="text" id="city-input">
+
+        </div>
+
         <!-- *YELP API CONTENT* -->
         <div id="yelp-display" class="row">
 
             <!-- Yelp 1 Column -->
             <div class="col s12 m4 l4">
 
-                <div id="yelp1-dropdown">
-                    <h5>Dropdown 1</h5>
+                <div id="yelp-search-1">
+                    <form>
+                        <input type="text" id="category-input-1">
+                        <button id="search-button-1"></button>
+                    </form>
                 </div>
 
-                <div id="yelp1-display">
-                    <h5>Top 5 Restaurants</h5>
-                    <p class="temporary">
-                        NAME
-                        </br>
-                        IMG - class ="responsive-img"
-                        </br>
-                        $$$
-                        </br>
-                        CUISINE
-                        </br>
-                        [ ] add to favorites?
-                    </p>
-                    <p class="temporary">
-                        [ ] view 5 more?
-                    </p>
+                <div id="yelp-results-1">
+
                 </div>
             </div>
 
             <!-- Yelp 2 Column -->
             <div class="col s12 m4 l4">
 
-                <div id="yelp2-dropdown">
-                    <h5>Dropdown 2</h5>
+                <div id="yelp-search-2">
+                    <input type="text" id="category-input-2">
+                    <button id="search-button-2"></button>
                 </div>
 
-                <div id="yelp2-display">
-                    <h5>Top 5 Museums</h5>
-                    <p class="temporary">
-                        NAME
-                        </br>
-                        IMG - class ="responsive-img"
-                        </br>
-                        CATEGORY
-                        </br>
-                        [ ] anything else?
-                        </br>
-                        [ ] add to favorites?
-                    </p>
-                    <p class="temporary">
-                        [ ] view 5 more?
-                    </p>
+                <div id="yelp-results-2">
+
                 </div>
             </div>
 
             <!-- Yelp 3 Column -->
             <div class="col s12 m4 l4">
 
-                <div id="yelp3-dropdown">
-                    <h5>Dropdown 3</h5>
+                <div id="yelp-search-3">
+                    <input type="text" id="category-input-3">
+                    <button id="search-button-2"></button>
                 </div>
-                <div id="yelp3-display">
-                    <h5>Top 5 Something</h5>
-                    <p class="temporary">
-                        NAME
-                        </br>
-                        IMG - class ="responsive-img"
-                        </br>
-                        CATEGORY
-                        </br>
-                        [ ] anything else?
-                        </br>
-                        [ ] add to favorites?
-                    </p>
-                    <p class="temporary">
-                        [ ] view 5 more?
-                    </p>
+
+                <div id="yelp-results-3">
+
                 </div>
+
             </div>
 
-        </div>
+            <!-- *SECOND API* -->
+            <!-- ON PAGE LOAD, HIDE -->
+            <!-- ON FORM SUBMISSION, SHOW -->
+            <div class="row">
 
         <!-- *SECOND API* -->
         <!-- ON PAGE LOAD, HIDE -->
@@ -141,22 +123,22 @@
 
         </div>
 
-    </div>
+        <!-- START FAVORITES PAGE NOTES -->
+        <div class="container">
 
-    <!-- START FAVORITES PAGE NOTES -->
-    <div class="container">
+            <div class="row">
 
-        <div class="row">
+                <div class="col s12">
 
-            <div class="col s12">
+                    <h5>[ ] FAVORITES PAGE? HERE TEMPORARILY</h5>
 
-                <h5>[ ] FAVORITES PAGE? HERE TEMPORARILY</h5>
+                </div>
 
             </div>
 
         </div>
+        <!-- END FAVORITES PAGE NOTES -->
 
-    </div>
     <!-- END FAVORITES PAGE NOTES -->
 
     <!-- jQuery link -->
