@@ -31,7 +31,7 @@ background-image: url(../images/skyline-silhouette.jpg);
 #map {
     float: center;
     height: 500px;
-    width: 500px;
+    width: auto;
 }
 
 /* Optional: Makes the sample page fill the window. */
