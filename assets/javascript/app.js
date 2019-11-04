@@ -187,3 +187,7 @@ function geocodeAddress(geocoder, resultsMap) {
     });
 }
 
+$(document).on("click", "#clearMarkers", function (resultsMap) {
+    marker.setMap(null);
+});
+
