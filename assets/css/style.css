@@ -12,6 +12,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #9e9d24; 
 }
 
+.input-field col {
+background-image: url(../images/skyline-silhouette.jpg);
+
+
+}
+
 .bold-text {
     font-weight: bold;
 }
