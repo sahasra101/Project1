@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 #map {
     float: center;
     height: 500px;
-    width: 500px;
+    width: auto;
 }
 
 /* Optional: Makes the sample page fill the window. */

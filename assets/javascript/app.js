@@ -48,14 +48,19 @@ $(document).ready(function () {
                 var bPhone = response.businesses[j].phone;
                 var bLocation = response.businesses[j].location.display_address;
                 var lat = response.businesses[j].coordinates.latitude;
-                var lon = response.businesses[j].coordinates.longitude;
+                var lng = response.businesses[j].coordinates.longitude;
+                var myLatlng = {lat, lng};
+                var addBtn = $("<button>").addClass("btn btn-info add-to-map-btn").text("Map It");
+                addBtn.attr("data-lng", lng);
+                addBtn.attr("data-lat", lat);
 
                 // console.log("Business Name = " + bName);
                 // console.log("Image URL = " + bImage);
                 // console.log("Phone = " + bPhone);
                 // console.log("Address = " + bLocation);
                 // console.log("Rating = " + bRating);
-                // console.log("Latitude, longitute = " + lat, lon);
+                 console.log("Latitude, longitute = " + lat, lng);
+                 console.log(myLatlng);
 
                 var imageRender = $("<img>")
                 imageRender.attr("src", bImage);
@@ -65,6 +70,7 @@ $(document).ready(function () {
                 yelpResult.append("</br><i class=\"fas fa-star\"></i> " + bRating + " Stars");
                 yelpResult.append("</br><i class=\"fas fa-map-marker-alt\"></i> " + bLocation);
                 yelpResult.append("</br><i class=\"fas fa-phone-alt\"></i> " + bPhone);
+                yelpResult.append(addBtn);
 
                 $("#yelp-display-1").append(yelpResult);
             }
@@ -115,14 +121,14 @@ $("#search-btn-1").on("click", function (event) {
                 var bPhone = response.businesses[j].phone;
                 var bLocation = response.businesses[j].location.display_address;
                 var lat = response.businesses[j].coordinates.latitude;
-                var lon = response.businesses[j].coordinates.longitude;
+                var lng = response.businesses[j].coordinates.longitude;
 
                 console.log("Business Name = " + bName);
                 console.log("Image URL = " + bImage);
                 console.log("Phone = " + bPhone);
                 console.log("Address = " + bLocation);
                 console.log("Rating = " + bRating);
-                console.log("Latitude, longitute = " + lat, lon);
+                console.log("Latitude, longitute = " + lat, lng);
 
                 var imageRender = $("<img>")
                 imageRender.attr("src", bImage);
@@ -140,17 +146,30 @@ $("#search-btn-1").on("click", function (event) {
 
 // GOOGLE MAPS BELOW
 
+var map;
+var geocoder;
+
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: { lat: 39.9526, lng: -75.165 }
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: { lat: 52.366, lng: 4.895 }
     });
-    var geocoder = new google.maps.Geocoder();
+    geocoder = new google.maps.Geocoder();
 
     document.getElementById('submit').addEventListener('click', function () {
         geocodeAddress(geocoder, map);
     });
 }
+
+$(document).on("click", ".add-to-map-btn", function() {
+    var lat = parseFloat($(this).attr("data-lat"));
+    var lng = parseFloat($(this).attr("data-lng"));
+    map.setCenter({ lat, lng });
+    var marker = new google.maps.Marker({
+        map: map,
+        position: { lat, lng }
+    });
+})
 
 function geocodeAddress(geocoder, resultsMap) {
     var address = document.getElementById('address').value;
