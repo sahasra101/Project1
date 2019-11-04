@@ -1,24 +1,13 @@
 // YELP BELOW
 
-// On page load, 
-    // display top 5 search results for 
-        // 3 pre-selected categories for 1 pre-selected city 
-$(document).ready(function () {
-
-    console.log("Page load function works");
-
-    var city = "Amsterdam";
-    var category = "Outdoor Dining";
+function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
+  
     // var categors = ["Outdoor Dining", "Museums", "Nature"];
 
     // for (i = 0; i < categors.length; i++) {}
 
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + category + "&location=" + city
 
-    // console.log(categors);
-    // console.log("categor[0] = " + categors[0]);
-    // console.log("categor[1] = " + categors[1]);
-    // console.log("categor[2] = " + categors[2]);
 
     $.ajax({
         url: queryURL,
@@ -31,13 +20,15 @@ $(document).ready(function () {
 
         .then(function (response) {
 
-            // console.log("Ajax Response below");
-            // console.log(response);
+            console.log("Ajax Response below");
+            console.log(response);
+            
+            $(yelpDisplay).empty();
 
             // var results = response.data;
             // console.log(results);
 
-            for (j = 0; j < 5; j++) {
+            for (var j = 0; j < 5; j++) {
 
                 var yelpResult = $("<div>");
                 yelpResult.attr("class", "card-panel hoverable");
@@ -72,9 +63,78 @@ $(document).ready(function () {
                 yelpResult.append("</br><i class=\"fas fa-phone-alt\"></i> " + bPhone);
                 yelpResult.append(addBtn);
 
-                $("#yelp-display-1").append(yelpResult);
+                $(yelpDisplay).append(yelpResult);
+                console.log(yelpResult)
             }
-        })
+     
+      })
+}
+    
+        
+
+// On page load, 
+    // display top 5 search results for 
+        // 3 pre-selected categories for 1 pre-selected city 
+$(document).ready(function () {
+
+    console.log("Page load function works");
+
+    // figure out how to get city input to render in displays 2 and 3. Works on 1. WHY?????!!!!
+    // yelp("Amsterdam", "Best Restaurants", "#yelp-display-1"); 
+    // yelp("Amsterdam", "Best Museums", "#yelp-display-2");
+    // yelp("Amsterdam", "Best Gardens", "#yelp-display-3");
+
+
+    var cityName = $(this).val() || "Amsterdam";
+    var category1 = $("#yelp-search-1").val() || "Best Restaurants";
+    var category2 = $("#yelp-search-2").val() || "Best Museums";
+    var category3 = $("#yelp-search-3").val() || "Best Gardens";
+
+    yelp(cityName, category1, "#yelp-display-1");
+    yelp(cityName, category2, "#yelp-display-2");
+    yelp(cityName, category3, "#yelp-display-3")
+
+    $("#city-name").on("keyup", function(event) {
+        event.preventDefault();
+        cityName = $(this).val();
+
+        yelp(cityName, category1, "#yelp-display-1");
+        yelp(cityName, category2, "#yelp-display-2");
+        yelp(cityName, category3, "#yelp-display-3");
+        console.log(cityName);
+        
+    })
+
+    $("#yelp-search-1").on("keyup", function(event) {
+        event.preventDefault();
+        category1 = $("#yelp-search-1").val();
+
+        yelp(cityName, category1, "#yelp-display-1");
+        console.log(category1);
+       // console.log("city1 " + cityName)
+    })
+
+    $("#yelp-search-2").on("keyup", function(event) {
+        event.preventDefault();
+        category2 = $("#yelp-search-2").val()
+
+        yelp(cityName, category2, "#yelp-display-2");
+        console.log(category2)
+        //console.log("city2 " + cityName)
+        
+        
+
+    })
+
+    $("#yelp-search-3").on("keyup", function(event) {
+        event.preventDefault();
+        category3 = $("#yelp-search-3").val()
+
+        yelp(cityName, category3, "#yelp-display-3");
+        console.log(category3)
+        //console.log("city3 " + cityName)
+    })
+
 
 });
 
@@ -82,38 +142,36 @@ $(document).ready(function () {
     // empty the divs under yelp-display-1 (or 2 or 3)
     // and display top 5 search results for 
         // each user input category for user input city 
-$("#search-btn-1").on("click", function (event) {
+// $("#search-btn-1").on("click", function (event) {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    var city = $("#city-name").val().trim();
-    var category = $("#yelp-search-1").val().trim();
-    console.log("City = " + city + ", Search = " + category);
+//     var city = $("#city-name").val().trim();
+//     var category = $("#yelp-search-1").val().trim();
+//     console.log("City = " + city + ", Search = " + category);
 
-    $("#yelp-display-1").empty(); // empty yelp-display div
+//     $("#yelp-display-1").empty(); // empty yelp-display div
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + category + "&location=" + city
 
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        headers: {
-            Authorization: "Bearer f_OWbSivdwPfDyl30viNm1pnNTDjKRkxJILe56UtQARE0RCvNNOoDY11kZPHD3XBxpDDsHLcQ4gUlUfE_-CxM89He8J5bEgGByTO56_pk-LILybh25BE7NgrRLQsXXYx",
-        },
-        dataType: 'json',
+//     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + category + "&location=" + city
 
-    })
-        .then(function (response) {
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET",
+//         headers: {
+//             Authorization: "Bearer f_OWbSivdwPfDyl30viNm1pnNTDjKRkxJILe56UtQARE0RCvNNOoDY11kZPHD3XBxpDDsHLcQ4gUlUfE_-CxM89He8J5bEgGByTO56_pk-LILybh25BE7NgrRLQsXXYx",
+//         },
+//         dataType: 'json',
 
-            console.log("Ajax Response from user input below");
-            console.log(response);
-            // var testDiv = $("#test");
-            // var results = response.data
+//     })
+//         .then(function (response) {
 
-            for (j = 0; j < 5; j++) {
+//             console.log("Ajax Response from user input below");
+//             console.log(response);
+//             // var testDiv = $("#test");
+//             // var results = response.data
 
-                var yelpResult = $("<div>");
-                yelpResult.attr("class", "card-panel hoverable");
+//             for (j = 0; j < 5; j++) {
 
                 var bName = response.businesses[j].name;
                 var bImage = response.businesses[j].image_url;
@@ -130,19 +188,31 @@ $("#search-btn-1").on("click", function (event) {
                 console.log("Rating = " + bRating);
                 console.log("Latitude, longitute = " + lat, lng);
 
-                var imageRender = $("<img>")
-                imageRender.attr("src", bImage);
-                imageRender.attr("class", "responsive-img", bImage);
-                yelpResult.append(imageRender);
-                yelpResult.append("<b>" + bName + "</b>");
-                yelpResult.append("</br><i class=\"fas fa-star\"></i> " + bRating + " Stars");
-                yelpResult.append("</br><i class=\"fas fa-map-marker-alt\"></i> " + bLocation);
-                yelpResult.append("</br><i class=\"fas fa-phone-alt\"></i> " + bPhone);
+//                 console.log("Business Name = " + bName);
+//                 console.log("Image URL = " + bImage);
+//                 console.log("Phone = " + bPhone);
+//                 console.log("Address = " + bLocation);
+//                 console.log("Rating = " + bRating);
+//                 console.log("Latitude, longitute = " + lat, lon);
 
-                $("#yelp-display-1").append(yelpResult);
-            }
-        })
-})
+//                 var imageRender = $("<img>")
+//                 imageRender.attr("src", bImage);
+//                 imageRender.attr("class", "responsive-img", bImage);
+//                 yelpResult.append(imageRender);
+//                 yelpResult.append("<b>" + bName + "</b>");
+//                 yelpResult.append("</br><i class=\"fas fa-star\"></i> " + bRating + " Stars");
+//                 yelpResult.append("</br><i class=\"fas fa-map-marker-alt\"></i> " + bLocation);
+//                 yelpResult.append("</br><i class=\"fas fa-phone-alt\"></i> " + bPhone);
+
+//                 $("#yelp-display-1").append(yelpResult);
+                
+
+
+
+               
+//             };
+//         })
+// })
 
 // GOOGLE MAPS BELOW
 
