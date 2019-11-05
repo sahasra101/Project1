@@ -149,7 +149,7 @@ function initMap() {
 }
 
 $(document).on("click", ".add-to-map-btn", function () {
-    deleteMarkers();
+    // deleteMarkers();
     var lat = parseFloat($(this).attr("data-lat"));
     var lng = parseFloat($(this).attr("data-lng"));
     map.setCenter({ lat, lng });
