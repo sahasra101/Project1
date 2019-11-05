@@ -163,16 +163,37 @@
 
         <!-- *GOOGLE MAPS DISPLAY* -->
         <div class="row center-align lime lighten-4">
-            <!-- SEARCH BOX -->
-            <div id="floating-panel">
-                <input id="address" type="textbox" placeholder="type your location">
-                <input id="submit" type="button" value="Map It">
-                <input id="deleteMarker" onclick="deleteMarkers();" type="button" value="Clear Markers">
+
+            <div class="col s12 center-align">
+
+                <div class="row">
+                    <div class="col s0 m2 l3"></div>
+                    <form>
+                        <div class="input-field col s12 m8 l6">
+
+                            <!-- HEADLINE 3 -->
+                            <h5 class="bold-text">See it on the map!</h5>
+
+                            <!-- user address input -->
+                            <input placeholder="Your Location" id="address" type="text" class="validate">
+
+                            <!-- submit address button -->
+                            <button id="submit" class="btn btn-small" type="button" value="Map It">Map It</button>
+
+                            <!-- clear markers button -->
+                            <button id="deleteMarker" class="btn btn-small" onclick="deleteMarkers();" type="button" value="Clear Markers">Clear Markers</button>
+                        </div>
+                    </form>
+                    <div class="col s0 m2 l3"></div>
+                </div>
+
+                <div class="center-align" id="map"></div>
+
             </div>
-            <!-- MAP DISPLAY -->
-            <div class="center-align" id="map">
-            </div>
+
         </div>
+
+        <div class="row"></div>
 
     </div>
 
