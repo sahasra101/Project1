@@ -41,7 +41,7 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
                 var lat = response.businesses[j].coordinates.latitude;
                 var lng = response.businesses[j].coordinates.longitude;
                 var myLatlng = { lat, lng };
-                var addBtn = $("<button>").addClass("btn btn-info add-to-map-btn").text("Map It");
+                var addBtn = $("<button>").addClass("btn btn-small add-to-map-btn").text("Map It");
                 addBtn.attr("data-lng", lng);
                 addBtn.attr("data-lat", lat);
 
@@ -61,8 +61,8 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
                 yelpResult.append("</br><i class=\"fas fa-star\"></i> " + bRating + " Stars");
                 yelpResult.append("</br><i class=\"fas fa-map-marker-alt\"></i> " + bLocation);
                 yelpResult.append("</br><i class=\"fas fa-phone-alt\"></i> " + bPhone);
+                yelpResult.append("</br>");
                 yelpResult.append(addBtn);
-
                 $(yelpDisplay).append(yelpResult);
                 console.log(yelpResult)
             }

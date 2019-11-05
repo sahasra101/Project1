@@ -12,10 +12,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #9e9d24; 
 }
 
-.input-field col {
-background-image: url(../images/skyline-silhouette.jpg);
-
-
+.add-to-map-btn {
+    margin-top: 10px;
 }
 
 .bold-text {
@@ -35,18 +33,13 @@ background-image: url(../images/skyline-silhouette.jpg);
 }
 
 /* Optional: Makes the sample page fill the window. */
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
 #floating-panel {
-    /* position: absolute;
-    top: 10px;
-    left: 25%;
-    z-index: 5; */
     background-color: #fff;
     padding: 5px;
     border: 1px solid #999;
