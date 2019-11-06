@@ -82,11 +82,10 @@ $(document).ready(function () {
     // yelp("Amsterdam", "Best Museums", "#yelp-display-2");
     // yelp("Amsterdam", "Best Gardens", "#yelp-display-3");
 
-
     var cityName = $(this).val() || "Amsterdam";
-    var category1 = $("#yelp-search-1").val() || "Best Restaurants";
+    var category1 = $("#yelp-search-1").val() || "Restaurants";
     var category2 = $("#yelp-search-2").val() || "Best Museums";
-    var category3 = $("#yelp-search-3").val() || "Best Gardens";
+    var category3 = $("#yelp-search-3").val() || "Gardens";
 
     yelp(cityName, category1, "#yelp-display-1");
     yelp(cityName, category2, "#yelp-display-2");
