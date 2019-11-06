@@ -72,7 +72,7 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
  
 $(document).ready(function () {
 
-    console.log("Page loads.");
+    // console.log("Page loads.");
 
     var cityName = $(this).val() || "Amsterdam";
     var category1 = $("#yelp-search-1").val() || "Restaurants";
