@@ -1,10 +1,6 @@
-// YELP BELOW
+// YELP 
 
 function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
-
-    // var categors = ["Outdoor Dining", "Museums", "Nature"];
-
-    // for (i = 0; i < categors.length; i++) {}
 
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + category + "&location=" + city
 
@@ -20,8 +16,8 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
 
         .then(function (response) {
 
-            console.log("Ajax Response below");
-            console.log(response);
+            // console.log("Ajax Response below");
+            // console.log(response);
 
             $(yelpDisplay).empty();
 
@@ -50,8 +46,8 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
                 // console.log("Phone = " + bPhone);
                 // console.log("Address = " + bLocation);
                 // console.log("Rating = " + bRating);
-                console.log("Latitude, longitute = " + lat, lng);
-                console.log(myLatlng);
+                // console.log("Latitude, longitute = " + lat, lng);
+                // console.log(myLatlng);
 
                 var imageRender = $("<img>")
                 imageRender.attr("src", bImage);
@@ -64,7 +60,7 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
                 yelpResult.append("</br>");
                 yelpResult.append(addBtn);
                 $(yelpDisplay).append(yelpResult);
-                console.log(yelpResult)
+                // console.log(yelpResult)
             }
 
         })
@@ -72,15 +68,11 @@ function yelp(city, category = "Dining", yelpDisplay = "#yelp-display-1") {
 
 // On page load, 
 // display top 5 search results for 
-// 3 pre-selected categories for 1 pre-selected city 
+// 3 pre-selected categories for 1 pre-selected city
+ 
 $(document).ready(function () {
 
-    console.log("Page load function works");
-
-    // figure out how to get city input to render in displays 2 and 3. Works on 1. WHY?????!!!!
-    // yelp("Amsterdam", "Best Restaurants", "#yelp-display-1"); 
-    // yelp("Amsterdam", "Best Museums", "#yelp-display-2");
-    // yelp("Amsterdam", "Best Gardens", "#yelp-display-3");
+    console.log("Page loads.");
 
     var cityName = $(this).val() || "Amsterdam";
     var category1 = $("#yelp-search-1").val() || "Restaurants";
@@ -103,6 +95,8 @@ $(document).ready(function () {
 
     $("#yelp-search-1").on("keyup", function (event) {
         event.preventDefault();
+        console.log("This is yelp search 1");
+
         category1 = $("#yelp-search-1").val();
 
         yelp(cityName, category1, "#yelp-display-1");
@@ -112,6 +106,7 @@ $(document).ready(function () {
 
     $("#yelp-search-2").on("keyup", function (event) {
         event.preventDefault();
+        console.log("This is yelp search 2");
         category2 = $("#yelp-search-2").val()
 
         yelp(cityName, category2, "#yelp-display-2");
@@ -129,7 +124,7 @@ $(document).ready(function () {
     })
 });
 
-// GOOGLE MAPS BELOW
+// GOOGLE MAPS
 
 var map;
 var geocoder;
