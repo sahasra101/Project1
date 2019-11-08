@@ -19,6 +19,6 @@
     - Font Awesome
 
 [Authors]
-    - Ajay Kiri [https://sahasra101.github.io/Responsive-Portfolio/]
+    - Ajay Kiri [https://sahasra101.github.io/Ajay-Kiri-Portfolio/]
     - Leah Kurtz [https://lfkurtz7.github.io/] 
     - Jacalyn Shou [https://jshou403.github.io/Bootstrap-Portfolio-2/]
